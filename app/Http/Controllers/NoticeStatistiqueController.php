@@ -14,7 +14,7 @@ class NoticeStatistiqueController extends Controller
     public function index()
     {
         $noticestat = notice_statistiques::paginate(10);
-        return NoticeStatistique::collection($noticestat);
+        return NoticeStatistiqueResource::collection($noticestat);
     }
 
     /**
@@ -35,7 +35,20 @@ class NoticeStatistiqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $noticestat = new NoticeStatistique();
+        $noticestat -> TEL ->$request ->TEL;
+        $noticestat -> IDENTIFIANT ->$request ->IDENTIFIANT;
+        $noticestat -> CODE_NC->$request ->CODE_NC;
+        $noticestat -> NC->$request ->NC;
+        $noticestat -> DCI	->$request ->DCI;
+        $noticestat -> JAIME->$request->JAIME;
+        $noticestat -> VUE->$request->VUE;
+        $noticestat -> FAVORIS->$request->FAVORIS;
+        $noticestat -> ID_CODE->$request->ID_CODE;
+
+        if ($noticestat->save()) {
+            return new NoticeStatistiqueResource($avis);
+        }
     }
 
     /**
@@ -46,7 +59,8 @@ class NoticeStatistiqueController extends Controller
      */
     public function show($id)
     {
-        //
+        $noticestat = notice_statistiques::findOrFail($id);
+        return new NoticeStatistiqueResource($noticestat);
     }
 
     /**
@@ -69,7 +83,20 @@ class NoticeStatistiqueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $noticestat = notice_statistiques::findOrFail($id);
+        $noticestat -> TEL ->$request ->TEL;
+        $noticestat -> IDENTIFIANT ->$request ->IDENTIFIANT;
+        $noticestat -> CODE_NC->$request ->CODE_NC;
+        $noticestat -> NC->$request ->NC;
+        $noticestat -> DCI	->$request ->DCI;
+        $noticestat -> JAIME->$request->JAIME;
+        $noticestat -> VUE->$request->VUE;
+        $noticestat -> FAVORIS->$request->FAVORIS;
+        $noticestat -> ID_CODE->$request->ID_CODE;
+
+        if ($noticestat->save()) {
+            return new NoticeStatistiqueResource($avis);
+        }
     }
 
     /**
@@ -80,6 +107,10 @@ class NoticeStatistiqueController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $noticestat = notice_statistiques::findOrFail($id);
+        if ($noticestat->delete()) {
+
+            return new NoticeStatistiqueResource($noticestat);
+        }
     }
 }
