@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ReferenceController extends Controller
+class ProtocoleStatistiqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,15 +13,14 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        $ref = Reference::paginate(10);
-        return PostResource::collection($ref);
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function create()
     {
         //
@@ -35,14 +34,7 @@ class ReferenceController extends Controller
      */
     public function store(Request $request)
     {
-        $ref = new reference();
-        $ref -> TITRE = $request -> TITRE;
-        $ref -> TYPE = $request -> TYPE;
-
-        if ($ref->save()) {
-
-            return new ReferenceResource($ref);
-        }
+        //
     }
 
     /**
@@ -53,8 +45,7 @@ class ReferenceController extends Controller
      */
     public function show($id)
     {
-        $ref = Reference::findOrFail($id);
-        return new ReferenceResource($ref);
+        //
     }
 
     /**
@@ -77,13 +68,7 @@ class ReferenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ref = Reference::findOrFail($id);
-        $ref -> TITRE = $request ->TITRE;
-        $ref -> TYPE = $request ->TYPE;
-
-        if ($ref -> save()) {
-            return new ReferenceResource($ref);
-        }
+        //
     }
 
     /**
@@ -94,10 +79,6 @@ class ReferenceController extends Controller
      */
     public function destroy($id)
     {
-        $ref = reference::findOrFail($id);
-        if ($ref->delete()) {
-
-            return new ReferenceResource($ref);
-        }
+        //
     }
 }

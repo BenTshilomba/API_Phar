@@ -22,7 +22,8 @@ class CollaborateurFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'NOMS' =>$this -> faker -> text(50),
+            'FONCTION' =>$this -> faker -> text(50)
         ];
     }
 }

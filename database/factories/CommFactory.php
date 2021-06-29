@@ -22,7 +22,10 @@ class CommFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'txtNAME' =>$this ->faker->text(50),
+            'txtEMAIL' =>$this ->faker->text(50),
+            'txtPHONE' =>$this ->faker->text(50),
+            'txtMESSAGE'=>$this ->faker->text(50)
         ];
     }
 }

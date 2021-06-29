@@ -22,7 +22,10 @@ class ImFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'DCI1'=>$this ->faker->text(50),
+            'DCI2'=>$this ->faker->text(50),
+            'IM'=>$this ->faker->text(50),
+            'NIVEAU_C'=>$this ->faker->text(50)
         ];
     }
 }

@@ -22,7 +22,10 @@ class GodelieveSecurityFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'EXPIRATION'=>$this ->faker->text(50),
+            'AVERTISSEMENT'=>$this ->faker->text(50),
+            'BLOCAGE'=>$this ->faker->text(50),
+            'BLASPHEME'=>$this ->faker->text(50)
         ];
     }
 }

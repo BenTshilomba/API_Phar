@@ -22,7 +22,17 @@ class TopFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'IDENTIFIANT'=>$this ->faker->text(50),
+            'LOCK_MY'=>$this ->faker->text(50),
+            'TELEPHONE'=>$this ->faker->text(50),
+            'FONCTION'=>$this ->faker->text(50),
+            'SAUVEGARDE'=>$this ->faker->text(50),
+            'HOPITAL'=>$this ->faker->text(50),
+            'PROVINCE'=>$this ->faker->text(50),
+            'PAYS'=>$this ->faker->text(50),
+            'CNOM'=>$this ->faker->text(50),
+            'IMEI'=>$this ->faker->text(50),
+            'TOP'=>$this ->faker->text(50)
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ReferenceController extends Controller
+class AvisStatistiqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,15 +13,15 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        $ref = Reference::paginate(10);
-        return PostResource::collection($ref);
+        $avisstat=avis_statistiques::paginate(10);
+        return AvisStatistiqueResource::collection($avisstat);
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function create()
     {
         //
@@ -35,14 +35,17 @@ class ReferenceController extends Controller
      */
     public function store(Request $request)
     {
-        $ref = new reference();
-        $ref -> TITRE = $request -> TITRE;
-        $ref -> TYPE = $request -> TYPE;
+        $avisstat = new Avisstat();
+        $avisstat->TEL->$request ->TEL;
+        $avisstat->IDENTIFIANT->$request ->IDENTIFIANT;
+        $avisstat->CODE_AVIS->$request ->CODE_AVIS;
+        $avisstat->JAIME->$request ->JAIME;
+        $avisstat->ID_CODE->$request ->ID_CODE;
 
-        if ($ref->save()) {
-
-            return new ReferenceResource($ref);
+        if ($avisstat->save()) {
+            return new AvisStatistiqueResource($avisstat);
         }
+        
     }
 
     /**
@@ -53,8 +56,8 @@ class ReferenceController extends Controller
      */
     public function show($id)
     {
-        $ref = Reference::findOrFail($id);
-        return new ReferenceResource($ref);
+        $avisstat = avis_statistiques::findOrFail($id);
+        return  new AvisStatistiqueResource($avisstat);
     }
 
     /**
@@ -77,12 +80,15 @@ class ReferenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ref = Reference::findOrFail($id);
-        $ref -> TITRE = $request ->TITRE;
-        $ref -> TYPE = $request ->TYPE;
+        $avisstat = avis_statistiques::findOrFail($id);
+        $avisstat->TEL->$request ->TEL;
+        $avisstat->IDENTIFIANT->$request ->IDENTIFIANT;
+        $avisstat->CODE_AVIS->$request ->CODE_AVIS;
+        $avisstat->JAIME->$request ->JAIME;
+        $avisstat->ID_CODE->$request ->ID_CODE;
 
-        if ($ref -> save()) {
-            return new ReferenceResource($ref);
+        if ($avisstat->save()) {
+            return new AvisStatistiqueResource($avisstat);
         }
     }
 
@@ -94,10 +100,10 @@ class ReferenceController extends Controller
      */
     public function destroy($id)
     {
-        $ref = reference::findOrFail($id);
-        if ($ref->delete()) {
+        $avisstat = avis_statistiques::findOrFail($id);
+        if ($avisstat->delete()) {
 
-            return new ReferenceResource($ref);
+            return new AvisStatistiqueResource($avisstat);
         }
     }
 }

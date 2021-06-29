@@ -22,7 +22,13 @@ class ProtocoleStatistiqueFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'TEL'=>$this ->faker->text(50),
+            'IDENTIFIANT'=>$this ->faker->text(50),
+            'CODEP'=>$this ->faker->text(50),
+            'JAIME'=>$this ->faker->text(50),
+            'VUE'=>$this ->faker->text(50),
+            'FAVORIS'=>$this ->faker->text(50),
+            'ID_CODE'=>$this ->faker->text(50)
         ];
     }
 }

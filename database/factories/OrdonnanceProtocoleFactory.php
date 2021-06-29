@@ -22,7 +22,17 @@ class OrdonnanceProtocoleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'CODEP'=>$this ->faker->text(50),
+            'NC'=>$this ->faker->text(50),
+            'DCI'=>$this ->faker->text(50),
+            'FG'=>$this ->faker->text(50),
+            'DOSE'=>$this ->faker->text(50),
+            'DT'=>$this ->faker->text(50),
+            'POSOLOGIE'=>$this ->faker->text(50),
+            'VA'=>$this ->faker->text(50),
+            'DURE'=>$this ->faker->text(50),
+            'NOTE'=>$this ->faker->text(50),
+            'ID_CODE'=>$this ->faker->text(50)
         ];
     }
 }
