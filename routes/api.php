@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/references',[ReferenceController::class,'index']);
+
+Route::post('/reference',[ReferenceController::class,'store']);
+
+Route::get('/references/{id}',[ReferenceController::class,'show']);
+
+Route::put('/references/{id}',[ReferenceController::class,'update']);
+
+Route::delete('/references/{id}',[ReferenceController::class,'destroy']);

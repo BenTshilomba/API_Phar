@@ -22,7 +22,8 @@ class ReferenceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'TITRE' =>$this -> faker -> text(50),
+            'TYPE' => $this->faker->text(20)
         ];
     }
 }
