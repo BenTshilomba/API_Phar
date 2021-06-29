@@ -13,7 +13,8 @@ class EisController extends Controller
      */
     public function index()
     {
-        //
+        $ei=eis::paginate(10);
+        return EiResource::collection($ei);
     }
 
     /**
@@ -34,7 +35,26 @@ class EisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ei = new Ei();
+        $ei->NC->$request->NC;
+        $ei->DCI->$request->DCI;
+        $ei->CT->$request->CT;
+        $ei->FIRME->$request->FIRME;
+        $ei->DETAILS_EI->$request->DETAILS_EI;
+        $ei->QUANTITE->$request->QUANTITE;
+        $ei->ATTITUDE->$request->ATTITUDE;
+        $ei->URGENCE->$request->URGENCE;
+        $ei->CATEGORIE->$request->CATEGORIE;
+        $ei->ADRESSE->$request->ADRESSE;
+        $ei->DATE->$request->DATE;
+        $ei->IDENTIFIANT->$request->IDENTIFIANT;
+        $ei->TEL->$request->IDENTIFIANT;
+        $ei->HOPITAL->$request->HOPITAL;
+        $ei->CODE_EI->$request->CODE_EI;
+
+        if ($ei->save()) {
+            return new EiResource($ei);
+        }
     }
 
     /**
@@ -45,7 +65,8 @@ class EisController extends Controller
      */
     public function show($id)
     {
-        //
+        $ei = Eis::findOrFail($id);
+        return new EiResource($ei);
     }
 
     /**
@@ -68,7 +89,26 @@ class EisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ei = Eis::findOrFail($id);
+        $ei->NC->$request->NC;
+        $ei->DCI->$request->DCI;
+        $ei->CT->$request->CT;
+        $ei->FIRME->$request->FIRME;
+        $ei->DETAILS_EI->$request->DETAILS_EI;
+        $ei->QUANTITE->$request->QUANTITE;
+        $ei->ATTITUDE->$request->ATTITUDE;
+        $ei->URGENCE->$request->URGENCE;
+        $ei->CATEGORIE->$request->CATEGORIE;
+        $ei->ADRESSE->$request->ADRESSE;
+        $ei->DATE->$request->DATE;
+        $ei->IDENTIFIANT->$request->IDENTIFIANT;
+        $ei->TEL->$request->IDENTIFIANT;
+        $ei->HOPITAL->$request->HOPITAL;
+        $ei->CODE_EI->$request->CODE_EI;
+
+        if ($ei->save()) {
+            return new EiResource($ei);
+        }
     }
 
     /**
@@ -79,6 +119,10 @@ class EisController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ei = Eis::findOrFail($id);
+        if ($ei->delete()) {
+
+            return new EiResource($ei);
+        }
     }
 }

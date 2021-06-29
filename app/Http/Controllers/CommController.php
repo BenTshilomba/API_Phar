@@ -13,7 +13,8 @@ class CommController extends Controller
      */
     public function index()
     {
-        //
+        $com = comms::pagination(10);
+        return commResource::collection($com);
     }
 
     /**
@@ -34,7 +35,16 @@ class CommController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $com = new Comm();
+        $com->txtNAME->$request->txtNAME;
+        $com->txtEMAIL->$request->txtEMAIL;
+        $com->txtPHONE->$request->txtPHONE;
+        $com->txtMESSAGE->$request->txtMESSAGE;
+
+        if ($com->save()) {
+            return new CommResource($avis);
+        }
+
     }
 
     /**
@@ -45,7 +55,8 @@ class CommController extends Controller
      */
     public function show($id)
     {
-        //
+        $com=Comms::findOrFail($id);
+        return new CommResource($com);
     }
 
     /**
@@ -68,7 +79,16 @@ class CommController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $com=Comms::findOrFail($id);
+        $com->txtNAME->$request->txtNAME;
+        $com->txtEMAIL->$request->txtEMAIL;
+        $com->txtPHONE->$request->txtPHONE;
+        $com->txtMESSAGE->$request->txtMESSAGE;
+
+        if ($com->save()) {
+            return new CommResource($avis);
+        }
+
     }
 
     /**
@@ -79,6 +99,9 @@ class CommController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $com = $com=Comms::findOrFail($id);
+        if ($com->delete()) {
+            return new CommResource($com); 
+        }
     }
 }

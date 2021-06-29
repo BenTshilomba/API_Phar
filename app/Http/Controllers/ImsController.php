@@ -13,7 +13,8 @@ class ImsController extends Controller
      */
     public function index()
     {
-        //
+        $im = ims::paginate(10);
+        return ImResource::collection($im);
     }
 
     /**
@@ -34,7 +35,15 @@ class ImsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $im = new Ims();
+        $im -> DCI1 ->$request ->DCI1;
+        $im -> DCI2 ->$request ->DCI2;
+        $im -> IM->$request ->IM;
+        $im -> NIVEAU_C->$request ->NIVEAU_C;
+
+        if ($im->save()) {
+            return new ImResource($im);
+        }
     }
 
     /**
@@ -45,7 +54,8 @@ class ImsController extends Controller
      */
     public function show($id)
     {
-        //
+        $im = Ims::findOrFail($id);
+        return new ImResource($im);
     }
 
     /**
@@ -68,7 +78,15 @@ class ImsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $im = Ims::findOrFail($id);
+        $im -> DCI1 ->$request ->DCI1;
+        $im -> DCI2 ->$request ->DCI2;
+        $im -> IM->$request ->IM;
+        $im -> NIVEAU_C->$request ->NIVEAU_C;
+
+        if ($im->save()) {
+            return new ImResource($im);
+        }
     }
 
     /**
@@ -79,6 +97,10 @@ class ImsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $im = Ims::findOrFail($id);
+        if ($im->delete()) {
+
+            return new ImResource($avis);
+        }
     }
 }

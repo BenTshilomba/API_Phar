@@ -52,7 +52,8 @@ class CollaborateurController extends Controller
      */
     public function show($id)
     {
-        //
+        $collabo = Collaborateurs::findOrFail($id);
+        return new CollaborateurResource($collabo);
     }
 
     /**
@@ -75,7 +76,13 @@ class CollaborateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $collabo = Collaborateurs::findOrFail($id);
+        $collabo->NOMS->$request->NOMS;
+        $collabo->FONCTION->request->FONCTION;
+
+        if ($collabo->save()) {
+            return new CollaborateurResource($collabo);
+        }
     }
 
     /**

@@ -13,7 +13,8 @@ class GodelieveSecurutyController extends Controller
      */
     public function index()
     {
-        //
+        $God = godelieve_securities::pagination(10);
+        return GodelieveSecurityResource::collection($God);
     }
 
     /**
@@ -34,7 +35,15 @@ class GodelieveSecurutyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $God = new godelieve_securities();
+        $God->EXPIRATION->$request->EXPIRATION;
+        $God->AVERTISSEMENT->$request->AVERTISSEMENT;
+        $God->BLOCAGE->$request->BLOCAGE;
+        $God->BLASPHEME->$request->BLASPHEME;
+
+        if ($God->save()) {
+            return new GodelieveSecurityResource($God);
+        }
     }
 
     /**
@@ -45,7 +54,8 @@ class GodelieveSecurutyController extends Controller
      */
     public function show($id)
     {
-        //
+        $God = godelieve_securities::findOrFail($id);
+        return new GodelieveSecurityResource($God);
     }
 
     /**
@@ -68,7 +78,15 @@ class GodelieveSecurutyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $God = godelieve_securities::findOrFail($id);
+        $God->EXPIRATION->$request->EXPIRATION;
+        $God->AVERTISSEMENT->$request->AVERTISSEMENT;
+        $God->BLOCAGE->$request->BLOCAGE;
+        $God->BLASPHEME->$request->BLASPHEME;
+
+        if ($God->save()) {
+            return new GodelieveSecurityResource($God);
+        }
     }
 
     /**
@@ -79,6 +97,9 @@ class GodelieveSecurutyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $God = godelieve_securities::findOrFail($id);
+        if ($God->delete()) {
+            return new GodelieveSecurityResource($God);
+        }
     }
 }

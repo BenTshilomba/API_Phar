@@ -13,7 +13,8 @@ class NoticeStatistiqueController extends Controller
      */
     public function index()
     {
-        //
+        $noticestat = notice_statistiques::paginate(10);
+        return NoticeStatistique::collection($noticestat);
     }
 
     /**
