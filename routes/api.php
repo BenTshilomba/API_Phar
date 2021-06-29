@@ -17,13 +17,38 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//reference
+Route::get('/References',[ReferenceController::class,'index']);
 
-Route::get('/references',[ReferenceController::class,'index']);
+Route::post('/Reference',[ReferenceController::class,'store']);
 
-Route::post('/reference',[ReferenceController::class,'store']);
+Route::get('/References/{id}',[ReferenceController::class,'show']);
 
-Route::get('/references/{id}',[ReferenceController::class,'show']);
+Route::put('/References/{id}',[ReferenceController::class,'update']);
 
-Route::put('/references/{id}',[ReferenceController::class,'update']);
+Route::delete('/References/{id}',[ReferenceController::class,'destroy']);
 
-Route::delete('/references/{id}',[ReferenceController::class,'destroy']);
+//avis
+Route::get('/Avis',[AvisController::class,'index']);
+
+Route::post('/Avis',[AvisController::class,'store']);
+
+Route::get('/Avis/{id}',[AvisController::class,'show']);
+
+Route::put('/Avis/{id}',[AvisController::class,'update']);
+
+Route::delete('/Avis/{id}',[AvisController::class,'destroy']);
+
+//collaborateur
+Route::get('/Collaborateurs',[CollaborateurController::class,'index']);
+
+Route::post('/Collaborateur',[CollaborateurController::class,'store']);
+
+Route::get('/Collaborateurs/{id}',[CollaborateurController::class,'show']);
+
+Route::put('/Collaborateurs/{id}',[CollaborateurController::class,'update']);
+
+Route::delete('/Collaborateurs/{id}',[CollaborateurController::class,'destroy']);
+
+
+
